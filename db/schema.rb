@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221054524) do
+ActiveRecord::Schema.define(version: 20170221095743) do
 
   create_table "curriculumviates", force: :cascade do |t|
     t.string   "sent_by"
+    t.date     "received_on"
+    t.string   "attachment"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "curriculumvitaes", force: :cascade do |t|
+    t.string   "send_by"
     t.date     "received_on"
     t.string   "attachment"
     t.datetime "created_at",  null: false

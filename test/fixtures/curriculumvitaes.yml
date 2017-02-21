@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  sent_by: MyString
+  send_by: MyString
   received_on: 2017-02-21
   attachment: MyString
 
 two:
-  sent_by: MyString
+  send_by: MyString
   received_on: 2017-02-21
   attachment: MyString
