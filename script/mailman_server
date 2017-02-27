@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+require "rubygems"
+require "bundler/setup"
+require "mailman"
+#require "#{File.dirname __FILE__}/../config/environment"
+
+
+username = ''                       
+### OR ###
+username = 'kafleumesh@gmail.com'
+
+puts "Using username='#{username}'..." 
+Mailman.config.pop3 = {
+  server: 'pop.gmail.com', port: 995, ssl: true,
+  username: username, 
+  password: 'Tahachaina1'
+}
+Mailman::Application.run do
+  default do
+    begin
+      Curriculumvitae.receive_mail(message)
+    rescue Exception => e
+      Mailman.logger.error "Exception occurred while receiving message:\n#{message}"
+      Mailman.logger.error [e, *e.backtrace].join("\n")
+    end
+  end
+end
