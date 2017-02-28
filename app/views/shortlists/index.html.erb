@@ -3,14 +3,14 @@
   <nav id="table-tabs">
       <ul class="nav nav-tabs">
         <li><%= link_to "CV Lists", root_url%></li>
-        <li><%= link_to "Shorted CVs", "#"%></li>
+        <li><%= link_to "Shorted CVs", shortlists_path%></li>
         <li><%= link_to "Interview Schedule", "#"%></li>
       </ul>
       
   </nav>
   <div class="table-responsive">
     <div id="cv-header">
-      <h2>CVs Lists</h2> 
+      <h3>CVs Lists</h3> 
       <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
@@ -29,22 +29,33 @@
         </tr>
       </thead>
       <tbody>
-        
+        <% @curriculumvitaes.each do |curriculumvitae|%>
           <tr>
-           <td class="col-md-2" ></td>
-           <td class="col-md-2"></td>
-           <td class="col-md-2"></td>
+           <td class="col-md-2" ><%= @curriculumvitaes.index(curriculumvitae) + 1%></td>
+           <td class="col-md-2"><%= curriculumvitae.from%></td>
+           <td class="col-md-2"><%= curriculumvitae.updated_at%></td>
            <td class="col-md-2"></td>
            
            
            <td class="col-md-2">
-              <%= link_to 'Schedule Interview', "#", class: "btn btn-info" %>
+              <%= link_to 'Schedule Interview', new_shortlist_path, remote: true, class: "btn btn-info" %>
+              <span class="glyphicon glyphicon-calendar"></span>-
               
            </td>
           </tr>
-        
+        <%end%>
       </tbody>
     </table>
   </div>
 </div>
+<%= will_paginate @curriculumvitaes%>
+
+
+<div class="modal fade" id="newModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    </div>
+  </div>
+</div>
+
 

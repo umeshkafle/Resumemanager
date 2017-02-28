@@ -1,4 +1,6 @@
 class Curriculumvitae < ApplicationRecord
+
+enum status: [:shorted, :not_shorted]
 	def self.receive_mail(message)
 		curriculumvitae_id = message.subject[/^Update(\d+)$/, 1]
 		if curriculumvitae_id.present? && curriculumvitae.exists?(curriculumvitae_id)

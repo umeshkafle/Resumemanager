@@ -2,15 +2,15 @@
 <div class="container">
   <nav id="table-tabs">
       <ul class="nav nav-tabs">
-        <li><%= link_to "CV Lists", root_url%></li>
-        <li><%= link_to "Shorted CVs", "#"%></li>
+        <li><%= link_to "CV Lists", curriculumvitaes_path%></li>
+        <li><%= link_to "Shorted CVs", shortlists_path %></li>
         <li><%= link_to "Interview Schedule", "#"%></li>
       </ul>
       
   </nav>
   <div class="table-responsive">
     <div id="cv-header">
-      <h2>CVs Lists</h2> 
+      <h3>CVs Lists</h3> 
       <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="Search">
@@ -38,7 +38,7 @@
            
            
            <td class="col-md-2">
-              <%= link_to 'ShortList', "#", class: "btn btn-info" %>
+              <%= link_to 'ShortList', curriculumvitae_path(curriculumvitae.id), method: :patch, class: "btn btn-info" %>
               <%= link_to 'Destroy', curriculumvitae_path(curriculumvitae.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
            </td>
           </tr>
