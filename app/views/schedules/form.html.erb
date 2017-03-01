@@ -1,0 +1,32 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+  <h4 class="modal-title">Schedule Interview</h4>
+</div>
+<div class="modal-body">
+<div class="header">
+  <h5>Email:</h5>
+  <span id="headerEmail"></span>
+  <h4>Select Interview Timing</h4></br>
+</div>
+  <%= form_for :shortlist, url: { action: "create" } do |f| %>
+    <div class="form-inline">
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess2">Date</label>
+        <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status" placeholder:"dd/mm/yyyy">
+        <span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only">calendar</span>
+      </div>
+      <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess2">Time</label>
+        <input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status">
+        <span class="glyphicon glyphicon-time form-control-feedback" aria-hidden="true"></span>
+        <span id="inputSuccess2Status" class="sr-only">time</span>
+      </div>
+    </div>
+   
+</div>
+<div class="modal-footer">
+  <%= submit_tag "Save", class: "btn btn-primary" %>
+  <%= link_to "Cancle", shortlists_path, class: "btn btn-danger"%>
+  <% end %>
+</div>

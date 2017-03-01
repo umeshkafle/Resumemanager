@@ -10,7 +10,7 @@
   </nav>
   <div class="table-responsive">
     <div id="cv-header">
-      <h3>CVs Lists</h3> 
+      <h3>Shorted CVs Lists</h3> 
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -34,11 +34,11 @@
            <td class="col-md-2" ><%= @curriculumvitaes.index(curriculumvitae) + 1%></td>
            <td class="col-md-2"><%= curriculumvitae.from%></td>
            <td class="col-md-2"><%= curriculumvitae.updated_at%></td>
-           <td class="col-md-2"></td>
+           <td class="col-md-2"><%= curriculumvitae.attachment%></td>
            
            
            <td class="col-md-2">
-              <%= link_to 'Schedule Interview', new_shortlist_path, remote: true, class: "btn btn-info", email: curriculumvitae.from %>
+              <%= link_to 'Schedule Interview', new_schedule_path, remote: true, class: "btn btn-info" %>
           </tr>
         <%end%>
       </tbody>
@@ -48,11 +48,6 @@
 <%= will_paginate @curriculumvitaes%>
 
 
-<div class="modal fade" id="newModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-    </div>
-  </div>
-</div>
+
 
 

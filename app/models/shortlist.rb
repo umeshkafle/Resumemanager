@@ -1,3 +1,0 @@
-class Shortlist < ApplicationRecord
-
-end
