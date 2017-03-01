@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant_email: MyString
+  interview_date: 2017-03-01
+  attachment: MyString
+
+two:
+  applicant_email: MyString
+  interview_date: 2017-03-01
+  attachment: MyString

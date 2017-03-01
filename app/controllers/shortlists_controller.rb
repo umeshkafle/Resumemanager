@@ -4,12 +4,13 @@ class ShortlistsController < ApplicationController
   end
 
   def show
+    @curriculumvitae = Curriculumvitae.find(params[:curriculumvitae_id])
   end
 
   def new
     respond_to do |format|
-      format.js {}
-    
+     format.js {}
+   end
   end
 
   def create
@@ -23,11 +24,4 @@ class ShortlistsController < ApplicationController
 
   def destroy
   end
-
-  def new_release
-  respond_to do |format|
-    format.html
-    format.js
-  end
-end
 end
