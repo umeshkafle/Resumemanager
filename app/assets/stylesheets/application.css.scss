@@ -10,12 +10,13 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+
  *= require_tree .
  *= require_self
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
-
+ @import 'bootstrap-datetimepicker';
 
  #login{
 	margin-top: 100px;
@@ -99,3 +100,20 @@ h3 {
  .modal-footer, btn btn-primary{
  	padding-right: 220px;
  }
+
+.modal-dialog{
+	height:600px;
+	widht: 100%;
+}
+
+.modal-footer{
+	height: 50px;
+	width: 500px;
+}
+
+.modal-content {
+	width: 100%;
+}
+
+
+ 

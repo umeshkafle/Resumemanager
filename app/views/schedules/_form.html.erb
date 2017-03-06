@@ -1,0 +1,40 @@
+  
+  <div class="modal fade" id="newModal" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title">Schedule Interview</h4>
+        </div>
+        <div class="modal-body">
+          <div class="header">
+            <h5>Email:</h5>
+            <span id="headerEmail"></span>
+            <h4>Select Interview Timing</h4></br>
+          </div>
+            <%= form_for :schedule, url: { action: "create" } do |f| %>
+            <div class = "forp-group has-success has-feedback">
+              <div>
+                <%= f.label :Email%>
+                <%= f.text_field :from %>
+              </div>
+              <div class="form-inline">
+                <%= f.label :Date %>
+                <%= f.date_select :interview_date%>
+                <!--<input type="date", label =interview_date> <span class = "glyphicon glyphicon-calendar"></span>-->
+                <%= f.label :Time%>
+                <%= f.time_select :interview_time%>
+               <!-- <input type="", label =interview_time> <span class = "glyphicon glyphicon-time"></span>--> 
+              </div>
+            </div>
+             
+          <div class="modal-footer">
+
+            <%= submit_tag "Save", class: "btn btn-primary" %>
+            <%= link_to "Cancle", shortlists_path, class: "btn btn-danger"%>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,2 +1,27 @@
-<h1>Schedules#show</h1>
-<p>Find me in app/views/schedules/show.html.erb</p>
+<h2>Schedule of a specific curriculumvitae</h2>
+<%= render 'pagenav'%>	
+
+	<div class="table-responsive">
+    <%= render 'tableheader'%>
+	    <table class="table table-striped table-bordered table-hover">
+	      <thead>
+	        <tr>
+	          <th class="col-md-1">S.N</th>
+	          <th>Applicant Email</th>
+	          <th>Interview Date</th>
+	          <th>Interview Time</th>
+	          <th>Attachment</th>
+	          <th>Scheduling</th>
+	          <th>Summary</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+			      <tr>
+			        <td class="col-md-2"><%= schedule.from %></td>
+			        <td class="col-md-2"><%= schedule.interview_date %></td>
+			        <td class="col-md-2"><%= schedule.interview_time %></td>
+			        <td class="col-md-2"><%= schedule.attachment %></td>      
+			      </tr>
+	      </tbody>
+	    </table>
+  </div>

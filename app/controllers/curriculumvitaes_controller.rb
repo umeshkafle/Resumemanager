@@ -3,7 +3,7 @@ class CurriculumvitaesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @curriculumvitaes = Curriculumvitae.paginate(:page => params[:page], :per_page => 5)
+    @curriculumvitaes = Curriculumvitae.all.paginate(:page => params[:page], :per_page => 5)
 
   end
 
@@ -28,7 +28,7 @@ class CurriculumvitaesController < ApplicationController
   def update
     @curriculumvitae = Curriculumvitae.find(params[:id].to_i)
     @curriculumvitae.update!(status: Curriculumvitae.statuses[:shorted])
-    redirect_to shortlists_path, notice: t(".#{params[:status]}")
+    redirect_to shortlists_url, notice: t(".#{params[:status]}")
   end
 
   def destroy

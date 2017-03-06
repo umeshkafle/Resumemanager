@@ -1,2 +1,3 @@
-$("#newModal .modal-content").html("<%= escape_javascript render(:partial => 'schedules/new') %>");
-  $("#newModal").modal();
+
+$("#pop-up-modal").html("<%= escape_javascript render(:partial => 'schedules/form') %>");
+  $("#newModal").modal("show");
