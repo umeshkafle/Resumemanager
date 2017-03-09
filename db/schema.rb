@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302083325) do
+ActiveRecord::Schema.define(version: 20170309044049) do
 
   create_table "curriculumvitaes", force: :cascade do |t|
     t.string   "attachment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "from"
     t.string   "email"
     t.string   "subject"
     t.string   "body"
     t.date     "received_on"
     t.integer  "status"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -40,6 +44,14 @@ ActiveRecord::Schema.define(version: 20170302083325) do
     t.string   "attachment"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "summaries", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "curriculumvitae_id"
+    t.string   "from"
   end
 
   create_table "users", force: :cascade do |t|

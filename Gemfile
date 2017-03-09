@@ -15,6 +15,7 @@ gem 'will_paginate', "~> 3.0.4"
 gem 'pry-rails', '~> 0.3.5'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
+gem 'paperclip', '~> 5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record

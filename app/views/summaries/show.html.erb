@@ -1,0 +1,12 @@
+<div class="container">
+	<%= @curriculumvitae.from %>
+			<fieldset class="scheduler-border">
+			    <legend class="scheduler-border">Summary</legend>
+			    <div class="control-group">
+			        <label class="control-label input-label" for="summary"></label>
+			        		<%= @summary.content%>
+			    </div>
+			</fieldset>
+		<%= link_to 'Back', curriculumvitae_summaries_path(@curriculumvitae), class: "btn btn-primary"%>
+
+</div>

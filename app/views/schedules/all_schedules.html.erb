@@ -19,20 +19,22 @@
               <tr>
                 <td class="col-md-2" ><%= @schedules.index(schedule) + 1%></td>
                 <td class="col-md-2"><%= schedule.from %></td>
-                <td class="col-md-2"><%= schedule.interview_date %></td>
-                <td class="col-md-2"><%= schedule.interview_time %></td>
+                <td class="col-md-2"><%= schedule.interview_time.localtime %></td>
                 </td class="col-md-2"><%= schedule.attachment %></td>
                  
                  
                 <td class="col-md-2">
-                  <%= link_to 'ReSchedule Interview', new_curriculumvitae_schedule_path(:curriculumvitae_id), class: "btn btn-info" %>
-                  <%= link_to "Add", "#", class: "btn btn default"%><span class="glyphicon glyphicon-plus"></span>
+                
+                  <%= link_to 'ReSchedule Interview', "new_curriculumvitae_schedule_path(curriculumvitae.id)", class: "btn btn-info", remote: true %>
+                  <%= link_to "Add", "new_curriculumvitae_summary_path(@curriculumvitae)", class: "btn btn default"%><span class="glyphicon glyphicon-plus"></span>
               </tr>
             
           <%end%>
     
         </tbody>
       </table>
+  </div>
+  <div id="pop-up-modal">
   </div>
   
 

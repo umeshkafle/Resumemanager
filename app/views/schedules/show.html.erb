@@ -19,7 +19,7 @@
 			      <tr>
 			        <td class="col-md-2"><%= schedule.from %></td>
 			        <td class="col-md-2"><%= schedule.interview_date %></td>
-			        <td class="col-md-2"><%= schedule.interview_time %></td>
+			        <td class="col-md-2"><%= schedule.interview_time.localtime %></td>
 			        <td class="col-md-2"><%= schedule.attachment %></td>      
 			      </tr>
 	      </tbody>

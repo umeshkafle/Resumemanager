@@ -18,10 +18,28 @@ Mailman.config.pop3 = {
 Mailman::Application.run do
   default do
     begin
-      Curriculumvitae.receive_mail(message)
-    rescue Exception => e
-      Mailman.logger.error "Exception occurred while receiving message:\n#{message}"
-      Mailman.logger.error [e, *e.backtrace].join("\n")
+      p "Found a new message"
+      if message.multipart?
+        the_message_html = message.html_part.body.decoded
+        the_message_text = message.text_part.body.decoded
+        the_message_attachments = []
+        message.attachments.each do |attachment|
+          file = StringIO.new(attachment.decoded)
+          file.class.class_eval { attr_accessor :original_filename, :content_type }
+          file.original_filename = attachment.filename
+          file.content_type = attachment.mime_type
+          #binding.pry
+          # attachment = Attachment.new
+          # attachment.attached_file = file
+          # attachment.save
+          # the_message_attachments << attachment
+        end
+      else
+        the_message_html = message.body.decoded
+        the_message_text = message.body.decoded
+        the_message_attachments = []
+      end
+      Curriculumvitae.create(:from => message.from.first, :to => message.to.first, :subject => message.subject, :html_body => the_message_html, :text_body => the_message_text, :attachment => message.attachment)
     end
   end
 end

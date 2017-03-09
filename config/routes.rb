@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   resources :shortlists
   resources :curriculumvitaes do
   	resources :schedules
+    resources :summaries
   end
 
- #get 'all_schedules' => 'schedules#all_schedules'
+  
+
+ get 'all_schedules' => 'schedules#all_schedules'
 
 
   root "curriculumvitaes#index"

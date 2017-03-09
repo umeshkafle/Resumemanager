@@ -41,7 +41,7 @@ class CurriculumvitaesController < ApplicationController
   private
 
   def curriculumvitae_params
-    params.require(:curriculumvitae).permit(:from, :subject, :attachment, :received_on)
+    params.require(:curriculumvitae).permit(:from, :subject, :attachment, :received_on, :attachment)
   end
 
 end

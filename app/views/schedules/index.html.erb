@@ -7,27 +7,28 @@
 	        <tr>
 	          <th class="col-md-1">S.N</th>
 	          <th>Applicant Email</th>
-	          <th>Intervies Date</th>
-	          <th>Interview Time</th>
+	          <th>Interview Date/Time</th>
 	          <th>Attachment</th>
 	          <th>Scheduling</th>
 	          <th>Summary</th>
 	        </tr>
 	      </thead>
 	      <tbody>
+	      
+
 	      <% @schedules.each do |schedule|%>
 	      	<tr>
 	      	
 	          <td class="col-md-1"><%= @schedules.index(schedule) + 1%></td>
-	          <td class="col-md-2"><%= schedule.from %></td>
-	          <td class="col-md-2"><%= schedule.interview_date %></td>
-	          <td class="col-md-1.5"><%= schedule.interview_time %></td>
+	          <td class="col-md-2"><%= @curriculumvitae.from %></td>
+	          <td class="col-md-2"><%= schedule.interview_time.localtime %></td>
 	          <td class="col-md-2"><%= schedule.attachment %></td>
-	          <td class="col-md-2"> <%= link_to 'ReSchedule Interview', new_curriculumvitae_schedule_path(schedule.curriculumvitae), class: "btn btn-info" %>
+	          <td class="col-md-2"> <%= link_to 'Re-Schedule Interview', new_curriculumvitae_schedule_path(@curriculumvitae), class: "btn btn-info", remote: true %>
 	          	<%= link_to "View Details",""%>
 	          </td>
-	          <td class="col-md-2"><%= link_to "Add", "#", class: "btn btn-info"%>  <span class="glyphicon glyphicon-plus"></span>
-	          	<%= link_to "View", "#", class: "btn btn-success"%>  <span class="glyphicon glyphicon-eye-open"></td>
+	          
+	          <td class="col-md-2"><%= link_to "Add", new_curriculumvitae_summary_path(@curriculumvitae), class: "btn btn-info"%>  <span class="glyphicon glyphicon-plus"></span>
+	          	<%= link_to "View", "curriculumvitae_summary_path(@curriculumvitae, @summary)", class: "btn btn-success"%>  <span class="glyphicon glyphicon-eye-open"></td>
 	        </tr>
 	      <%end%>
 	      </tbody>
@@ -35,4 +36,5 @@
   </div>
   <div id="pop-up-modal">
 	</div>
+	<%= will_paginate @schedules%>
 

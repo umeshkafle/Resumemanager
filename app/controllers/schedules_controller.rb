@@ -9,7 +9,8 @@ class SchedulesController < ApplicationController
 
   def index
     @curriculumvitae = Curriculumvitae.find(params[:curriculumvitae_id])
-    @schedules = @curriculumvitae.schedules
+    @schedules = @curriculumvitae.schedules.paginate(:page => params[:page], :per_page => 4)
+    @curriculumvitaes = Curriculumvitae.all
     #@schedules = Curriculumvitae.find(params[:curriculumvitae_id]).schedules
   end
 
@@ -19,8 +20,10 @@ class SchedulesController < ApplicationController
   end
 
   def new
-    # binding.pry
-    @schedule = Curriculumvitae.find(params[:curriculumvitae_id]).schedules.new
+     #binding.pry
+     @curriculumvitae = Curriculumvitae.find(params[:curriculumvitae_id])
+     @schedule = @curriculumvitae.schedules.new
+    #@schedule = Curriculumvitae.find(params[:curriculumvitae_id]).schedules.new
   end
 
   def create
