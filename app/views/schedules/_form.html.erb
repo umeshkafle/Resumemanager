@@ -14,11 +14,6 @@
           </div>
             <%= form_for :schedule, url: { action: "create" } do |f| %>
             <div class = "forp-group has-success has-feedback">
-              <label class="col-lg-2 control-label">Email</label>
-              <div class="col-lg-2">
-                <input type="text" placeholder="Email" class="form-control" id="from" />
-              </div></br>
-
               <div class="form-inline">
                 <%= f.label :Date %>
                 <%= f.date_select :interview_date, type: "date", class: "form-control"%>
@@ -31,7 +26,7 @@
              
           <div class="modal-footer">
 
-            <%= submit_tag "Save", class: "btn btn-primary" %>
+            <%= f.submit "Save", class: "btn btn-info" %>
             <%= link_to "Cancle", shortlists_path, class: "btn btn-danger"%>
             <% end %>
           </div>

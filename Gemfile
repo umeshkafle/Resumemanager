@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'devise', '~> 4.2'
+gem 'devise_invitable', '~> 1.7.0'
 gem 'pg', '~> 0.19.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'mailman', require: false
@@ -16,6 +17,8 @@ gem 'pry-rails', '~> 0.3.5'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 gem 'paperclip', '~> 5.1'
+gem 'activeadmin', '~> 1.0.0.pre5'
+gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
