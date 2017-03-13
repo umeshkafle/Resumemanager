@@ -24,15 +24,15 @@ Mailman::Application.run do
         the_message_text = message.text_part.body.decoded
         the_message_attachments = []
         message.attachments.each do |attachment|
-          file = StringIO.new(attachment.decoded)
-          file.class.class_eval { attr_accessor :original_filename, :content_type }
-          file.original_filename = attachment.filename
-          file.content_type = attachment.mime_type
           #binding.pry
-          # attachment = Attachment.new
-          # attachment.attached_file = file
-          # attachment.save
-          # the_message_attachments << attachment
+          #file = StringIO.new(Base64.decode64(string))
+          #puts file.respond_to?(:original_filename)
+          #puts file.respond_to?(:content_type)
+          #binding.pry
+          attachment = Attachment.new
+          attachment.attached_file = file
+          attachment.save
+          the_message_attachments << attachment
         end
       else
         the_message_html = message.body.decoded

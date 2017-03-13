@@ -7,7 +7,7 @@ end
 
 gem 'devise', '~> 4.2'
 gem 'devise_invitable', '~> 1.7.0'
-gem 'pg', '~> 0.19.0'
+gem 'pg'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'mailman', require: false
 gem 'mail'
@@ -19,10 +19,10 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.43'
 gem 'paperclip', '~> 5.1'
 gem 'activeadmin', '~> 1.0.0.pre5'
 gem 'inherited_resources', git: 'https://github.com/activeadmin/inherited_resources'
+gem 'pg_search', '~> 2.0', '>= 2.0.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -47,6 +47,15 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,5 +1,0 @@
-class AddDateToShortlists < ActiveRecord::Migration[5.0]
-  def change
-    remove_column :shortlists, :date, :date
-  end
-end

@@ -1,14 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'search/show'
-
-  get 'invitations/new'
-
-  get 'invitations/create'
-
-  get 'invitations/edit'
-
-  get 'invitations/update'
+  
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -22,7 +14,9 @@ Rails.application.routes.draw do
 
   
 
- get 'all_schedules' => 'schedules#all_schedules'
+  get 'all_schedules' => 'schedules#all_schedules'
+
+  resources :search, only: [:index]
 
 
   root "curriculumvitaes#index"

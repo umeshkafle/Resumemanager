@@ -1,6 +1,9 @@
 class SearchController < ApplicationController
-  def show
-  	search_query = params[:search][:from]
-  	@results = Curriculumvitae.where("from like ?", "status like ?", "received_on like ?",  "%#{search_query}%")
+  def index
+  	if params[:query].present?
+     @curriculumvitaes = Curriculumvitae.search(params[:query])
+   else
+     @curriculumvitaes = []
+   end
   end
 end
