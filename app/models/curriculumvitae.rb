@@ -12,9 +12,13 @@ enum status: [:shorted, :not_shorted]
 			self.update(curriculumvitae_id, body:message.body.decoded)
 		else
 			attachment = message.attachments[0]
-			File.open('umesh.png', 'wb') do |file|
-				file.write(Base64.decode64(attachment))
-			end
+				menu.to_s.encode( 'UTF-8', {
+					:invalid => :replace,
+					:undef => :replace,
+					:replace => '?'
+					})
+			#File.open('umesh.png', 'wb') do |file|
+				#file.write(Base64.decode64(attachment))
 			self.create(subject: message.subject, body: message.body.decoded, from: message.from.first, attachment: message.attachment)
 		end	
 	end

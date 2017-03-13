@@ -32,6 +32,7 @@ class SchedulesController < ApplicationController
     @schedule = @curriculumvitae.schedules.new(schedule_params)
     # binding.pry
     if @schedule.save
+      ScheduleMailer.new_schedule(@schedule).deliver_now
       redirect_to curriculumvitae_schedules_path(@curriculumvitae, @schedule)
     end
   end

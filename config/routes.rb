@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'search/show'
+
+  get 'invitations/new'
+
+  get 'invitations/create'
+
+  get 'invitations/edit'
+
+  get 'invitations/update'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
-  
+  devise_for :users, :controllers => { :invitations => 'users/invitations'}
+
   resources :curriculumvitaes do
   	resources :schedules
     resources :summaries

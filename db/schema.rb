@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170310071342) do
+ActiveRecord::Schema.define(version: 20170313044833) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20170310071342) do
     t.string   "attachment_content_type"
     t.integer  "attachment_file_size"
     t.datetime "attachment_updated_at"
+    t.string   "to"
+    t.string   "html_body"
+    t.string   "text_body"
   end
 
   create_table "schedules", force: :cascade do |t|
