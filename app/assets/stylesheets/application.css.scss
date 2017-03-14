@@ -18,11 +18,18 @@
  @import "bootstrap";
  @import 'bootstrap-datetimepicker';
 
+
+ a:link{
+ 	text-decoration: none;
+ 	color: #555;
+ }
+
  #login{
 	margin-top: 100px;
 	width: 50%;
 	float: center;
 	margin-left: 300px;
+	text-decoration:none;
 	
 }
 

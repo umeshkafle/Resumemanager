@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'all_schedules' => 'schedules#all_schedules'
 
+  #binding.pry
   resources :search, only: [:index]
 
 

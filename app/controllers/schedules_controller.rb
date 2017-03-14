@@ -3,6 +3,7 @@ class SchedulesController < ApplicationController
   
 
   def all_schedules
+    @curriculumvitae = Curriculumvitae.all
     @schedules = Schedule.joins(:curriculumvitae).where('curriculumvitaes.status=0') 
     #@curriculumvitaes = Curriculumvitae.all
   end
