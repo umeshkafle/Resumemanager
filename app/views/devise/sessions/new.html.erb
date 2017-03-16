@@ -4,12 +4,7 @@
   </header>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="devise-container">
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :username %><br />
-          <%= f.text_field :username, autofocus: true, class: "form-control" %>
-        </div>
-      </div>
+      
       <div class="row">
         <div class="form-group">
           <%= f.label :email %><br />
@@ -30,12 +25,16 @@
               <%= f.label :remember_me %>
             </div>
           <% end -%>
-          <div class="pull-right">
-            <%= render "devise/shared/links" %>
-          </div>
         </div>
       </div>
+      <div>
+        <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
+      </div>
+      
+      <div class="pull-buttom">
+            <%= render "devise/shared/links" %>
+      </div>
     </div>
-    <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
+    
   <% end %>
 </div>

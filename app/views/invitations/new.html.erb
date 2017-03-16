@@ -1,8 +1,0 @@
-<%=form_for :invitation, url: { action: "create" } do |f|%>
-	<div class="form-group">
-	  <input type="text" class="form-control" placeholder="new_user@example.com">
-	</div>
-	<button type="submit" class="btn btn-default">Send</button>
-	<%= link_to "Invite User", new_invitations_path("kafleumesh@gmail.com")%>
-	 
-<%end%>
