@@ -2,11 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, 
-          :controllers => { 
-          # Proper invitations should be sent through the active_admin interface.
-          :invitations => 'users_invitations' # user_invitations_controller.rb
-          }
+  devise_for :users, controllers: { invitations: 'devise/users_invitations' }
   resources :curriculumvitaes do
   	resources :schedules
     resources :summaries

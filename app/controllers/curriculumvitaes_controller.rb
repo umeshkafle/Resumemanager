@@ -3,8 +3,8 @@ class CurriculumvitaesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @curriculumvitaes = Curriculumvitae.all.paginate(:page => params[:page], :per_page => 5)
-
+    @curriculumvitaes = Curriculumvitae.all.paginate(:page => params[:page], :per_page => 6)
+    @attachments = Attachment.all
   end
 
   def show
@@ -41,7 +41,7 @@ class CurriculumvitaesController < ApplicationController
   private
 
   def curriculumvitae_params
-    params.require(:curriculumvitae).permit(:from, :subject, :attachment, :received_on, :attachment)
+    params.require(:curriculumvitae).permit(:from, :subject, :attachment, :received_on)
   end
 
 end
