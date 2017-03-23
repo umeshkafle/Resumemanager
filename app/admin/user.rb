@@ -12,8 +12,6 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-
-
 	action_item do
 	  link_to 'Invite New User', new_invitation_admin_users_path
 	end
@@ -33,5 +31,6 @@ ActiveAdmin.register User do
 			redirect_to new_invitation_admin_users_path
 		end
 	end
+
 
 end

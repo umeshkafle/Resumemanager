@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'users_invitational/edit'
+
+  get 'users_invitational/update'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users, controllers: { invitations: 'devise/users_invitations' }
-  resources :curriculumvitaes do
+devise_for :users, 
+          :controllers => {:invitations => 'users_invitations' # user_invitations_controller.rb
+                            }  
+    resources :curriculumvitaes do
   	resources :schedules
     resources :summaries
   end
