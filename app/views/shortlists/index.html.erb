@@ -18,7 +18,9 @@
               <td class="col-md-2" ><%= @curriculumvitaes.index(curriculumvitae) + 1%></td>
               <td class="email"><%= curriculumvitae.from%></td>
               <td class="col-md-2"><%= curriculumvitae.updated_at.localtime%></td>
-              <td class="col-md-2"><%= curriculumvitae.attachment%></td>
+              <td class="col-md-2"><% curriculumvitae.attachments.each do |attachment|%>
+                <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url %></td>
+              <%end%>
               <td class="col-md-2", id="schedule", onclick="doOnClick();">
                 <%= link_to 'Schedule_Interview', new_curriculumvitae_schedule_path(curriculumvitae.id), class: "btn btn-info", remote: true %></td>
             </tr>

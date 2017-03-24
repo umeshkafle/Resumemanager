@@ -9,8 +9,9 @@
         <div class="modal-body">
           <div class="header">
             <strong>Email: <%= @curriculumvitae.from%></strong>
-
+            
             <span id="headerEmail"></span>
+            
             <h4>Select Interview Timing</h4></br>
           </div>
             <%= form_for :schedule, url: { action: "create" } do |f| %>

@@ -1,12 +1,11 @@
-class UsersInvitationalController < ApplicationController
-
+class UsersInvitationalController < Devise::InvitationsController
   def update
     super
   end
 
   def edit 
     super
-  end
+  end 
 
   private 
   def accept_resource 

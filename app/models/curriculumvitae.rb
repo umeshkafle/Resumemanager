@@ -10,7 +10,7 @@ class Curriculumvitae < ApplicationRecord
 
 	  include PgSearch
 
-	  pg_search_scope :search, against: [:from, :received_on]
+	  pg_search_scope :search, against: [:from, :updated_at]
 
 
 		#def self.receive_mail(message)
