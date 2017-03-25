@@ -20,7 +20,7 @@
 	      	<tr>
 	      	
 	          <td class="col-md-1"><%= @schedules.index(schedule) + 1%></td>
-	          <td class="col-md-2"><%= @curriculumvitae.from %></td>
+	          <td class="col-md-2"><%= schedule.from %></td>
 	          <td class="col-md-2"><%= schedule.interview_time.localtime %></td>
 	          <td class="col-md-2"><%= schedule.attachment %></td>
 	          <td class="col-md-2"> <%= link_to 'Re-Schedule Interview', edit_curriculumvitae_schedule_path(schedule.curriculumvitae, schedule), class: "btn btn-info", remote: true %>

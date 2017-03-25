@@ -9,21 +9,18 @@ development:
   database: Resumemanager_development
   pool: 5
   timeout: 5000
-  username: umesh
-  password: TAHACHAINA
+  host: localhost
 
 test:
   adapter: postgresql
   database: Resumemanager_test
   pool: 5
   timeout: 5000
-  username: umesh
-  password: THAHACHAINA
+  host: localhost
 
 production:
   adapter: postgresql
   database: Resumemanager_production
   pool: 5
   timeout: 500
-  username: umesh
-  password: TAHACHAINA
+  host: localhost

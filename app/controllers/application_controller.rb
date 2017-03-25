@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  
   before_filter :configure_permitted_parameters, if: :devise_controller?
   
   protected
@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     #Only add some parameters
-    devise_parameter_sanitizer.for(:accept_invitation).concat [:email]
+    devise_parameter_sanitizer.permit(:accept_invitation)
     #Override accepted parameters
-    devise_parameter_sanitizer.for(:accept_invitation) do |u| 
-      u.permit(:email, :password, :password_confirmation, :invitation_token)
+    devise_parameter_sanitizer.permit(:accept_invitation) do |u| 
+      u.permit(:email, :password, :password_confirmation, :invitation_token, :username)
     end
 end
 end

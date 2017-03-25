@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users, 
           :controllers => { 
-          # Proper invitations should be sent through the active_admin interface.
-          :invitations => 'users_invitations' # user_invitations_controller.rb
+          :invitations => 'users_invitations' 
           }
   resources :curriculumvitaes do
   	resources :schedules
@@ -15,7 +14,7 @@ Rails.application.routes.draw do
 
   
 
-  get 'all_schedules' => 'schedules#all_schedules'
+  #get 'all_schedules' => 'schedules#all_schedules'
 
   #binding.pry
   resources :search, only: [:index]
