@@ -2,18 +2,22 @@
 require "rubygems"
 require "bundler/setup"
 require "mailman"
+require 'dotenv'
+
+Dotenv.load
 #require "#{File.dirname __FILE__}/../config/environment"
 
 
 username = ''                       
 ### OR ###
-username = 'kafleumesh@gmail.com'
+username = ENV['GMAIL_USERNAME']
 
 puts "Using username='#{username}'..." 
+
 Mailman.config.pop3 = {
   server: 'pop.gmail.com', port: 995, ssl: true,
   username: username, 
-  password: 'Tahachaina1'
+  password: ENV['GMAIL_PASSWORD']
 }
 Mailman::Application.run do
   default do

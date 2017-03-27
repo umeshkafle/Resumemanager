@@ -7,9 +7,11 @@ has_many :summaries
 has_many :attachments
 enum status: [:shorted, :not_shorted]
 
-  include PgSearch
+  # include PgSearch
 
-  pg_search_scope :search, against: [:from, :updated_at]
+  # pg_search_scope :search_content_for, aginst: [:from, :update_at] do
+  # 	where(["from" LIKE ? OR "update_at" LIKE ? , "%#{search}%" "%#{search}%"])
+  # end
 
 
 	#def self.receive_mail(message)
