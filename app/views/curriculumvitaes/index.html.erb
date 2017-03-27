@@ -18,7 +18,7 @@
               <td class="col-md-2"><%=curriculumvitae.from %></td>
               <td class="col-md-2"><%= curriculumvitae.updated_at.localtime%></td>
               <td class="col-md-2"><% curriculumvitae.attachments.each do |attachment|%>
-                <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url%>
+                <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url, target: '_blank'%>
                 <%end%>
               </td>
               <td class="col-md-2">

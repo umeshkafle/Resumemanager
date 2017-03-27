@@ -1,7 +1,7 @@
 class Curriculumvitae < ApplicationRecord
 
 #has_attached_file :attachment
-#validates_attachment_content_type :attachment, content_type: /\Aimage\/.*\z/
+#svalidates_attachment_content_type :attachment, content_type: /\Aimage\/.*\z/
 has_many :schedules
 has_many :summaries
 has_many :attachments
@@ -9,7 +9,7 @@ enum status: [:shorted, :not_shorted]
 
   include PgSearch
 
-  pg_search_scope :search, against: [:from, :received_on]
+  pg_search_scope :search, against: [:from, :updated_at]
 
 
 	#def self.receive_mail(message)

@@ -25,12 +25,15 @@
  }
 
  #login{
-	margin-top: 100px;
+	padding-top: 20px;
 	width: 50%;
-	float: center;
 	margin-left: 300px;
 	text-decoration:none;
 	
+}
+
+.well{
+	margin-top: 30px;
 }
 
 .pull-buttom{
@@ -104,8 +107,9 @@ h3 {
  }
 
  .modal-body {
- 	padding-left:50px;
- 	padding-top: 5px;
+ 	padding-left:100px;
+ 	padding-top: 20px;
+ 	padding-bottom: 20px;
  }
 
  .modal-footer, btn btn-primary{
@@ -152,4 +156,8 @@ legend.scheduler-border {
 
 .summaryForm{
 	padding-top: 10s0px;
+}
+
+#text_field{
+	padding-left:-50px;
 }
