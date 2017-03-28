@@ -16,10 +16,9 @@ Rails.application.routes.draw do
 
   #get 'all_schedules' => 'schedules#all_schedules'
 
-  #binding.pry
+  #binding.prys
   resources :search, only: [:index]
-
-
+  
   root "curriculumvitaes#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

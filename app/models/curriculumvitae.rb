@@ -7,12 +7,9 @@ has_many :summaries
 has_many :attachments
 enum status: [:shorted, :not_shorted]
 
-  # include PgSearch
-
-  # pg_search_scope :search_content_for, aginst: [:from, :update_at] do
-  # 	where(["from" LIKE ? OR "update_at" LIKE ? , "%#{search}%" "%#{search}%"])
-  # end
-
+include PgSearch
+pg_search_scope :search_by_applicant, :against => [:from]
+Curriculumvitae.where("curriculumvitaes.from LIKE '%a%' ")
 
 	#def self.receive_mail(message)
 	#	curriculumvitae_id = message.subject[/^Update(\d+)$/, 1] if message.subject.present?
