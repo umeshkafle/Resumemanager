@@ -10,8 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170324020126) do
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,21 +56,18 @@ ActiveRecord::Schema.define(version: 20170324020126) do
 
   create_table "curriculumvitaes", force: :cascade do |t|
     t.string   "attachment"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "from"
     t.string   "email"
     t.string   "subject"
     t.string   "body"
-    t.date     "received_on"
     t.integer  "status"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
     t.string   "to"
     t.string   "html_body"
     t.string   "text_body"
+    t.string   "received_on"
+    t.string   "attached_file"
   end
 
   create_table "schedules", force: :cascade do |t|

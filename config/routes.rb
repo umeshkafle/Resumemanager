@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, 
-          :controllers => { 
-          :invitations => 'users_invitations' 
-          }
-  resources :curriculumvitaes do
+          :controllers => {:invitations => 'users_invitations' # user_invitations_controller.rb
+                            }  
+    resources :curriculumvitaes do
   	resources :schedules
     resources :summaries
   end

@@ -2,6 +2,7 @@
 require "rubygems"
 require "bundler/setup"
 require "mailman"
+<<<<<<< HEAD
 require 'dotenv'
 
 Dotenv.load
@@ -19,15 +20,18 @@ Mailman.config.pop3 = {
   username: username, 
   password: ENV['GMAIL_PASSWORD']
 }
+
 Mailman::Application.run do
   default do
     begin
       p "Found a new message"
+     
       if message.multipart?
+         
         the_message_html = message.html_part.body.decoded
         the_message_text = message.text_part.body.decoded
-        the_message_attachments = []
-        
+        #binding.pry
+        the_message_attachments = []        
         curriculumvitae = Curriculumvitae.new
         curriculumvitae.from = message.from.first
         curriculumvitae.save
@@ -41,6 +45,7 @@ Mailman::Application.run do
           #binding.pry
           attachment = curriculumvitae.attachments.build
           attachment.attached_file = file
+          #attachment.curriculumvitae = Curriculumvitae.create(:from => message.from.first, :to => message.to.first, :subject => message.subject, :html_body => the_message_html, :text_body => the_message_text)
           attachment.save
           curriculumvitae.save
           the_message_attachments << attachment

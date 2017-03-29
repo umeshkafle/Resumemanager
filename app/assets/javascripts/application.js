@@ -18,5 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-jQuery ->
-	$('#interview-date').datetimepicker()
+function doOnClick(){
+	document.getElementById("schedule").value ="Reschedule";
+	return false;
+}

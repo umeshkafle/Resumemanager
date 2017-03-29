@@ -2,13 +2,6 @@
 $("#pop-up-modal").html("<%= escape_javascript render(:partial => 'schedules/form') %>");
   $("#newModal").modal("show");
 
-  $ (function() {
-  	$('#pop-up-modal').on('show.bs.modal', function(event) {
-  		var button = $(event.Schedule_Interview)
-  		var n = button.data('from')
-  		var modal = $(this)
-  		modal.find('#from').val(n);
-  	});
-  });
+  
 
 
