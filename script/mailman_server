@@ -2,22 +2,21 @@
 require "rubygems"
 require "bundler/setup"
 require "mailman"
-<<<<<<< HEAD
 require 'dotenv'
 
 Dotenv.load
 #require "#{File.dirname __FILE__}/../config/environment"
 
 
-username = ''                       
+username = ''
 ### OR ###
 username = ENV['GMAIL_USERNAME']
 
-puts "Using username='#{username}'..." 
+puts "Using username='#{username}'..."
 
 Mailman.config.pop3 = {
   server: 'pop.gmail.com', port: 995, ssl: true,
-  username: username, 
+  username: username,
   password: ENV['GMAIL_PASSWORD']
 }
 
@@ -25,13 +24,13 @@ Mailman::Application.run do
   default do
     begin
       p "Found a new message"
-     
+
       if message.multipart?
-         
+
         the_message_html = message.html_part.body.decoded
         the_message_text = message.text_part.body.decoded
         #binding.pry
-        the_message_attachments = []        
+        the_message_attachments = []
         curriculumvitae = Curriculumvitae.new
         curriculumvitae.from = message.from.first
         curriculumvitae.save
