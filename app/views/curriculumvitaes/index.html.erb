@@ -17,11 +17,12 @@
             <tr>
               <td class="col-md-2" ><%= @curriculumvitaes.index(curriculumvitae) + 1 %></td>
               <td class="col-md-2"><%=curriculumvitae.from %></td>
-              <td class="col-md-2"><%= curriculumvitae.updated_at.localtime%></td>
+              <td class="col-md-2"><%= curriculumvitae.updated_at.strftime("%e %b %Y %H:%M:%S%p")%></td>
               <td class="col-md-2"><% curriculumvitae.attachments.each do |attachment|%>
-                <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url %>
-              <%end%>
+                <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url, target: '_blank'%>
+                <%end%>
               </td>
+              
               <td class="col-md-2">
                 <%= link_to 'ShortList', curriculumvitae_path(curriculumvitae.id), method: :patch, class: "btn btn-info" %>
                 <%= link_to 'Destroy', curriculumvitae_path(curriculumvitae.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>

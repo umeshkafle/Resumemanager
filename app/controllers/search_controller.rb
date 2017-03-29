@@ -1,10 +1,9 @@
 class SearchController < ApplicationController
   def index
-  	#binding.pry
   	if params[:query].present?
-     @curriculumvitaes = Curriculumvitae.search(params[:query])
+     @curriculumvitaes = Curriculumvitae.search_by_applicant(params[:query])
    else
-     @curriculumvitaes = []
+     @curriculumvitaes = Curriculumvitae.all
    end
   end
 end

@@ -2,11 +2,10 @@ class SchedulesController < ApplicationController
 
   
 
-  def all_schedules
-    @curriculumvitae = Curriculumvitae.all
-    @schedules = Schedule.joins(:curriculumvitae).where('curriculumvitaes.status=0') 
-    #@curriculumvitaes = Curriculumvitae.all
-  end
+  #def all_schedules
+  #@schedules = Schedule.joins(:curriculumvitae).where('curriculumvitaes.status=0') 
+  #@curriculumvitaes = Curriculumvitae.all
+  #end
 
   def index
     @curriculumvitae = Curriculumvitae.find(params[:curriculumvitae_id])

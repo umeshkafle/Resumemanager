@@ -1,40 +1,42 @@
-<div id ="login">
-  <header>
-    <h2 style ="float:center">Log in</h2>
-  </header>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="devise-container">
+<div class="well">
+  <div id="login">
+    <header>
+      <h2 style ="float:center">Log in</h2>
+    </header>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="devise-container">
+        
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group actions">
+            <% if devise_mapping.rememberable? -%>
+              <div class="field pull-left">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+          </div>
+        </div>
+        <div>
+          <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
+        </div>
+        
+        <div class="pull-buttom">
+              <%= render "devise/shared/links" %>
+        </div>
+      </div>
       
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group actions">
-          <% if devise_mapping.rememberable? -%>
-            <div class="field pull-left">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          <% end -%>
-        </div>
-      </div>
-      <div>
-        <%= f.submit "Log in", class: "btn btn-lg btn-primary" %>
-      </div>
-      
-      <div class="pull-buttom">
-            <%= render "devise/shared/links" %>
-      </div>
-    </div>
-    
-  <% end %>
+    <% end %>
+  </div>
 </div>

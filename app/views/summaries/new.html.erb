@@ -1,18 +1,17 @@
-<div class="container">
+<div class="well">
 	<div id="summaryForm">
 		<%= form_for :summary, url: { action: "create" } do |f| %>
 			<h2>Interview Summary</h2>
-				<div class="form-group">
-			    <label for="exampleInputEmail1">Email address</label>
-			    <%= f.text_field :from, class: "form-control", placeholder: "Email"%>
-  			</div>
-
-				<div class="form-group">
-					<label for ="Add interview summary">Interview Summary</label>
-					<%= f.text_area :content, class: "form-control", placeholder: "Add interview summaru here."%>
+				<div id="text_field">
+					<div class="form-group">
+						<label for ="Add interview summary">Interview Summary</label>
+						<%= f.text_area :content, size: '5x5', class: "form-control", placeholder: "Add interview summaru here."%>
+					</div>
 				</div>
 				<div>
-					<%= submit_tag "Save", class: "btn btn-primary" %>
+					<%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+	          Save
+	        <% end %>
 				</div>
 		<%end%>
 	</div>	

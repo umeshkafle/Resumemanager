@@ -2,13 +2,23 @@
 require "rubygems"
 require "bundler/setup"
 require "mailman"
+<<<<<<< HEAD
+require 'dotenv'
 
-#Mailman.config.logger = Logger.new("log/mailman.log")
-Mailman.config.poll_interval = 3
+Dotenv.load
+#require "#{File.dirname __FILE__}/../config/environment"
+
+
+username = ''                       
+### OR ###
+username = ENV['GMAIL_USERNAME']
+
+puts "Using username='#{username}'..." 
+
 Mailman.config.pop3 = {
   server: 'pop.gmail.com', port: 995, ssl: true,
-  username: "kafleumesh@gmail.com",
-  password: "Tahachaina1"
+  username: username, 
+  password: ENV['GMAIL_PASSWORD']
 }
 
 Mailman::Application.run do
@@ -21,49 +31,33 @@ Mailman::Application.run do
         the_message_html = message.html_part.body.decoded
         the_message_text = message.text_part.body.decoded
         #binding.pry
-        the_message_attachments = []
+        the_message_attachments = []        
         curriculumvitae = Curriculumvitae.new
         curriculumvitae.from = message.from.first
-        curriculumvitae.to = message.to.first
-        curriculumvitae.subject= message.subject.first
-        # curriculumvitae.html_body = message.html_body.first
-        # curriculumvitae.text_body = message.text_body.first
-
         curriculumvitae.save
+
         message.attachments.each do |att|
           file = StringIO.new(att.decoded)
-          file.class.class_eval { attr_accessor :original_filename, :content_type }
+          #binding.pry
+          file.class.class_eval { attr_accessor :original_filename, :content_type}
           file.original_filename = att.filename
           file.content_type = att.mime_type
-          # path = File.join Rails.root, 'public', 'system', 'curriculumvitaes', curriculumvitae.id.to_s, 'style'
-          # FileUtils.mkdir_p(path) unless File.exist?(path) 
-          # File.open(File.join(path, att.filename), 'wb') { |f| f.write att.body.decoded }
+          #binding.pry
           attachment = curriculumvitae.attachments.build
-          #binding.pry
-          #binding.pry
           attachment.attached_file = file
           #attachment.curriculumvitae = Curriculumvitae.create(:from => message.from.first, :to => message.to.first, :subject => message.subject, :html_body => the_message_html, :text_body => the_message_text)
           attachment.save
           curriculumvitae.save
-          #binding.pry
           the_message_attachments << attachment
         end
       else
         the_message_html = message.body.decoded
         the_message_text = message.body.decoded
         the_message_attachments = []
-      end  
-      # binding.pry
-      
+      end
 
-    #cv = Curriculumvitae.create(:from => message.from.first, :to => message.to.first, :subject => message.subject, :html_body => the_message_html, :text_body => the_message_text) 
-     #  cv.attachments.create(attached_file: the_message_attachments)
-      # cv.save
-
-    # map attachments with message object and save other stuff and do other processing or trigger other events..
-   
     rescue Exception => e
-      Mailman.logger.error "Exception occurred while receiving message:\n#{message}"
+      Mailman.logger.error "Exception occured while receiving message:\n#{message}"
       Mailman.logger.error [e, *e.backtrace].join("\n")
     end
   end

@@ -2,6 +2,7 @@ class SummariesController < ApplicationController
   def index
     @curriculumvitae = Curriculumvitae.find(params[:curriculumvitae_id])
     @summaries = @curriculumvitae.summaries.paginate(:page => params[:page], :per_page => 4)
+    @curriculumvitaes = Curriculumvitae.all
   end
 
   def show
