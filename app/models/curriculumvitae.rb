@@ -6,8 +6,4 @@ class Curriculumvitae < ApplicationRecord
 	has_many :summaries
 	has_many :attachments
 	enum status: [:shorted, :not_shorted]
-	#mount_base64_uploader :attachment, AttachmentUploader
-	include PgSearch
-	pg_search_scope :search_by_applicant, :against => [:from]
-	Curriculumvitae.where("curriculumvitaes.from LIKE '%a%' ")
 end

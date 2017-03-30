@@ -1,10 +1,7 @@
+
 <div id="cv-header">
-  <h3>CV Lists</h3> 
-  <ul class="nav nav-pills">
-    <form class="navbar-form navbar-right" role="search" method = 'get' action = 'search'>
-      <div class="form-group">
-      	<input type="text" class="form-control" placeholder="yyyy-mm-dd / email" name='query'>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+	<h3>CV Lists</h3>
+		<%= form_for :search, url:("/search") do |f| %>
+		<%= f.text_field :from, class: "form-control", placeholder: "yyyy-mm-dd" %> <%= submit_tag ("Search")%>
+	<%end%>
 </div>

@@ -3,7 +3,7 @@ class CurriculumvitaesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @curriculumvitaes = Curriculumvitae.all.paginate(:page => params[:page], :per_page => 6)
+    @curriculumvitaes = Curriculumvitae.all.paginate(:page => params[:page], :per_page => 4)
     @attachments = Attachment.all
   end
 

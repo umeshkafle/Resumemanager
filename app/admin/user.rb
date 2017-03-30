@@ -21,10 +21,11 @@ ActiveAdmin.register User do
 	end 
 
 	collection_action :send_invitation, :method => :post do
-		@user = User.invite!(params[:user], current_user)
-		if @user.errors.empty?
-			flash[:success] = "User has been successfully invited." 
-			redirect_to admin_users_path
+		@user = User.invite!(:email => params[:user]["email"]) 
+    if @user.errors.empty?
+      flash[:success] = "User has been successfully invited." 
+      redirect_to admin_users_path
+
 		else
 			messages = @user.errors.full_messages.map { |msg| msg }.join
 			flash[:error] = "Error: " + messages

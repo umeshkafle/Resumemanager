@@ -1,2 +1,7 @@
-<h1>Curriculumvitaes#edit</h1>
-<p>Find me in app/views/curriculumvitaes/edit.html.erb</p>
+<div id="cv-header">
+	<h3>CV Lists</h3>
+	<%= form_tag(curriculumvitaes_path, method: 'get', class: 'navbar-form navbar-right') do %>
+	  <%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'YYYY-mm-dd/ Email'  %>
+	  <%= submit_tag "Search", class: 'btn btn-default btn-lg btn-submit' %>
+	<% end %>		
+</div>

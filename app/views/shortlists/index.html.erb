@@ -16,7 +16,7 @@
           <% @curriculumvitaes.each do |curriculumvitae|%>
             <tr>
               <td class="col-md-2" ><%= @curriculumvitaes.index(curriculumvitae) + 1%></td>
-              <td class="email"><%= curriculumvitae.from%></td>
+              <td class="col-md-2"><%= curriculumvitae.from%></td>
               <td class="col-md-2"><%= curriculumvitae.updated_at.strftime("%e %b %Y %H:%M:%S%p")%></td>
               <td class="col-md-2"><% curriculumvitae.attachments.each do |attachment|%>
                 <%= link_to "#{attachment.attached_file_file_name}", attachment.attached_file.url%>
